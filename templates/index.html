@@ -80,6 +80,27 @@
         <img src="{{ url_for('static', filename='green-elm.png') }}" alt="Green Elm">
         <h1>Green Elm</h1>
       </div>
+      <div class="services">
+        <div class="service">
+          <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank">
+          <img src="{{ url_for('static', filename='sonarr.png') }}" alt="Sonarr">
+            Sonarr</a>
+        </div>
+        <div class="service">
+          <a href="http://{{ request.host.split(':')[0] }}:7878" target="_blank">
+          <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
+            Radarr</a>
+        </div>
+        <div class="service">
+          <a href="http://{{ request.host.split(':')[0] }}:32400/web" target="_blank">
+          <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">Plex</a>
+        </div>
+        <div class="service">
+          <a href="http://{{ request.host.split(':')[0] }}:8112" target="_blank">
+          <img src="{{ url_for('static', filename='deluge.jpg') }}" alt="Deluge">
+            Deluge</a>
+        </div>
+      </div>
       <div class="disk-usage">
         <h2>Disk Usage</h2>
         <div class="bar-container">
@@ -89,24 +110,6 @@
         </div>
         <p>Used: {{ disk_usage.used }} GB</p>
         <p>Free: {{ disk_usage.free }} GB</p>
-      </div>
-      <div class="services">
-        <div class="service">
-          <img src="{{ url_for('static', filename='sonarr.png') }}" alt="Sonarr">
-          <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank">Sonarr</a>
-        </div>
-        <div class="service">
-          <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
-          <a href="http://{{ request.host.split(':')[0] }}:7878" target="_blank">Radarr</a>
-        </div>
-        <div class="service">
-          <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">
-          <a href="http://{{ request.host.split(':')[0] }}:32400/web" target="_blank">Plex</a>
-        </div>
-        <div class="service">
-          <img src="{{ url_for('static', filename='deluge.jpg') }}" alt="Deluge">
-          <a href="http://{{ request.host.split(':')[0] }}:8112" target="_blank">Deluge</a>
-        </div>
       </div>
     </div>
   </body>

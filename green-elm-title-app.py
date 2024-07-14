@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 def get_disk_usage():
-    disk_usage = psutil.disk_usage('/')
+    disk_usage = psutil.disk_usage('/home')
     total = disk_usage.total // (2**30)  # Convert bytes to gigabytes
     used = disk_usage.used // (2**30)
     free = disk_usage.free // (2**30)
