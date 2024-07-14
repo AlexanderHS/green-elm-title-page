@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Green Elm - Landing Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .header {
+        margin-bottom: 40px;
+      }
+      .header img {
+        max-width: 400px;
+      }
+      .header h1 {
+        margin-top: 10px;
+        font-size: 2.5em;
+        color: #333;
+      }
+      .disk-usage {
+        margin: 20px 0;
+      }
+      .disk-usage .bar-container {
+        width: 100%;
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 20px 0;
+      }
+      .disk-usage .bar {
+        height: 30px;
+        background-color: #007bff;
+        text-align: right;
+        padding-right: 10px;
+        line-height: 30px;
+        color: white;
+      }
+      .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .service {
+        width: 150px;
+        margin: 20px;
+        text-align: center;
+      }
+      .service img {
+        width: 100px;
+        height: 100px;
+      }
+      .service a {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.2em;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .service a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="{{ url_for('static', filename='green-elm.png') }}" alt="Green Elm">
+        <h1>Green Elm</h1>
+      </div>
+      <div class="disk-usage">
+        <h2>Disk Usage</h2>
+        <div class="bar-container">
+          <div class="bar" style="width: {{ disk_usage.percent }}%;">
+            {{ disk_usage.percent }}%
+          </div>
+        </div>
+        <p>Used: {{ disk_usage.used }} GB</p>
+        <p>Free: {{ disk_usage.free }} GB</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <img src="{{ url_for('static', filename='sonarr.png') }}" alt="Sonarr">
+          <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank">Sonarr</a>
+        </div>
+        <div class="service">
+          <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
+          <a href="http://{{ request.host.split(':')[0] }}:7878" target="_blank">Radarr</a>
+        </div>
+        <div class="service">
+          <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">
+          <a href="http://{{ request.host.split(':')[0] }}:32400/web" target="_blank">Plex</a>
+        </div>
+        <div class="service">
+          <img src="{{ url_for('static', filename='deluge.jpg') }}" alt="Deluge">
+          <a href="http://{{ request.host.split(':')[0] }}:8112" target="_blank">Deluge</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
