@@ -61,6 +61,11 @@
       .service img {
         width: 100px;
         height: 100px;
+        object-fit: contain;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
       }
       .service a {
         display: block;
@@ -83,22 +88,27 @@
       <div class="services">
         <div class="service">
           <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank">
-          <img src="{{ url_for('static', filename='sonarr.png') }}" alt="Sonarr">
-            Sonarr</a>
+            <img src="{{ url_for('static', filename='sonarr.png') }}" alt="Sonarr">
+            Sonarr
+          </a>
         </div>
         <div class="service">
           <a href="http://{{ request.host.split(':')[0] }}:7878" target="_blank">
-          <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
-            Radarr</a>
+            <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
+            Radarr
+          </a>
         </div>
         <div class="service">
           <a href="http://{{ request.host.split(':')[0] }}:32400/web" target="_blank">
-          <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">Plex</a>
+            <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">
+            Plex
+          </a>
         </div>
         <div class="service">
           <a href="http://{{ request.host.split(':')[0] }}:8112" target="_blank">
-          <img src="{{ url_for('static', filename='deluge.jpg') }}" alt="Deluge">
-            Deluge</a>
+            <img src="{{ url_for('static', filename='deluge.jpg') }}" alt="Deluge">
+            Deluge
+          </a>
         </div>
       </div>
       <div class="disk-usage">
