@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Green Elm - Landing Page</title>
+    <title>{{SERVER_NAME}} - Landing Page</title>
     <style>
       :root {
         --bg-color-light: #f4f4f9;
@@ -166,8 +166,8 @@
         <button class="toggle-button" onclick="toggleTheme()">Toggle Dark Mode</button>
       </div>
       <div class="header">
-        <img src="{{ url_for('static', filename='green-elm.png') }}" alt="Green Elm">
-        <h1>Green Elm</h1>
+        <img src="/static/{{SERVER_NAME}}.png" alt="{{title}}">
+        <h1>{{title}}</h1>
       </div>
       <div class="services">
         <div class="service">

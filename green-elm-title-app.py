@@ -1,5 +1,6 @@
 import psutil
 from flask import Flask, render_template, request
+from config import SERVER_NAME, SERVER_ICON
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def get_disk_usage():
 @app.route('/')
 def index():
     disk_usage = get_disk_usage()
-    return render_template('index.html', disk_usage=disk_usage)
+    return render_template('index.html', disk_usage=disk_usage, SERVER_NAME=SERVER_NAME, SERVER_ICON=SERVER_ICON, title=SERVER_NAME.replace('-', ' ').title())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
