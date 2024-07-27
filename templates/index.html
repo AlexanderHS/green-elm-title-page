@@ -166,9 +166,22 @@
         <button class="toggle-button" onclick="toggleTheme()">Toggle Dark Mode</button>
       </div>
       <div class="header">
-        <img src="/static/{{SERVER_NAME}}.png" alt="{{title}}">
+        <style>
+            .header video, .header img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+        {% if SERVER_NAME == "secret-realm" %}
+            <video autoplay loop muted>
+                <source src="/static/{{SERVER_NAME}}.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% else %}
+            <img src="/static/{{SERVER_NAME}}.png" alt="{{title}}">
+        {% endif %}
         <h1>{{title}}</h1>
-      </div>
+    </div>
       <div class="services">
         <div class="service">
           <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank">
