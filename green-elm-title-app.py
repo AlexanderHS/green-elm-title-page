@@ -17,7 +17,7 @@ def get_disk_usage() -> Dict[str, int]:
         disk_usage = (
             psutil.disk_usage("/home")
             if SERVER_NAME != "dark-helm"
-            else psutil.disk_usage("//10.0.0.14/grove/")
+            else psutil.disk_usage("/mnt/grove")
         )
     except FileNotFoundError:
         disk_usage = psutil.disk_usage("/")
