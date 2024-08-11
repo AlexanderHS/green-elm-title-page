@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{SERVER_NAME}} - Landing Page</title>
+    <!-- Load HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
     <style>
       :root {
         --bg-color-light: #f4f4f9;
@@ -160,7 +162,7 @@
       }
     </style>
   </head>
-  <body>
+  <body hx-get="/" hx-trigger="every 1s" hx-swap="outerHTML">
     <div class="container">
       <div class="toggle-container">
         <button class="toggle-button" onclick="toggleTheme()">Toggle Dark Mode</button>
@@ -231,6 +233,14 @@
       if (savedTheme) {
         document.body.classList.add(savedTheme);
       }
+
+      // Preserve the theme when the page is reloaded by HTMX
+      document.body.addEventListener('htmx:afterSwap', function(event) {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.body.classList.add(savedTheme);
+        }
+      });
     </script>
   </body>
 </html>
