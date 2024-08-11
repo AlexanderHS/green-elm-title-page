@@ -101,7 +101,6 @@
   </head>
   <body hx-get="/" hx-trigger="every 3s" hx-swap="outerHTML">
     <div class="container">
-        <button class="toggle-button" onclick="toggleTheme()">Toggle Dark Mode</button>
       <div class="header">
             <img src="/static/{{SERVER_NAME}}.png" alt="{{title}}">
         <h1>{{title}}</h1>
@@ -149,5 +148,7 @@
             document.body.classList.add(localStorage.getItem('theme') || 'light');
       });
     </script>
+            <button class="toggle-button" onclick="toggleTheme()">Toggle Dark Mode</button>
+
   </body>
 </html>
