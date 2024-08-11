@@ -60,11 +60,13 @@ import os
 import platform
 
 if __name__ == "__main__":
-    is_windows = "windows" in platform.system().lower()
+    is_development_environment = (
+        "windows" in platform.system().lower() or "darwin" in platform.system().lower()
+    )
     print(f"Platform: {platform.system()}")
 
-    if is_windows:
-        # Windows (assumed dev environment)
+    if is_development_environment:
+        # Windows or macOS (assumed dev environment)
         app.run(host="0.0.0.0", port=8080, debug=True)
     else:
         # Linux (assumed production environment)
