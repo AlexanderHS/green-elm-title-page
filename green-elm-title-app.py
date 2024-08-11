@@ -26,10 +26,10 @@ def get_disk_usage() -> Dict[str, int]:
     gb_factor = 2**30  # 1 GB in bytes
 
     return {
-        "total": int(disk_usage.total // gb_factor),
-        "used": int(disk_usage.used // gb_factor),
-        "free": int(disk_usage.free // gb_factor),
-        "percent": int(disk_usage.percent),
+        "total": round(disk_usage.total / gb_factor, 2),
+        "used": round(disk_usage.used / gb_factor, 2),
+        "free": round(disk_usage.free / gb_factor, 2),
+        "percent": round(disk_usage.percent, 2),
     }
 
 
