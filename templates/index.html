@@ -172,14 +172,7 @@
                 height: auto;
             }
         </style>
-        {% if SERVER_NAME == "secret-realm" %}
-            <video autoplay loop muted>
-                <source src="/static/{{SERVER_NAME}}.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        {% else %}
-            <img src="/static/{{SERVER_NAME}}.png" alt="{{title}}">
-        {% endif %}
+            <img src="/static/{{SERVER_NAME}}.png" alt="{{title}}" style="border-radius: 50px;">
         <h1>{{title}}</h1>
     </div>
       <div class="services">
