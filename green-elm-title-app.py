@@ -55,5 +55,19 @@ def index() -> str:
     )
 
 
+import os
+
+import platform
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    is_windows = "windows" in platform.system().lower()
+    print(f"Platform: {platform.system()}")
+
+    if is_windows:
+        # Windows (assumed dev environment)
+        app.run(host="0.0.0.0", port=8080, debug=True)
+    else:
+        # Linux (assumed production environment)
+        from waitress import serve
+
+        serve(app, host="0.0.0.0", port=8080)
