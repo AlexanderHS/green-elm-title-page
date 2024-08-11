@@ -53,8 +53,8 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
         .service img {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             object-fit: contain;
             margin-bottom: 15px;
       }
@@ -100,6 +100,41 @@
             --card-bg: #1e2a38;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
+        .services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.service:hover {
+  transform: scale(1.05);
+}
+
+.service img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.service-name {
+  color: var(--text-color);
+  font-size: 1.1em;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
     </style>
   </head>
   <body hx-get="/" hx-trigger="every 3s" hx-swap="outerHTML">
@@ -109,26 +144,26 @@
         <h1>{{title}}</h1>
     </div>
       <div class="services">
-        <div class="service">
+        <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank" class="service">
             <img src="{{ url_for('static', filename='sonarr.png') }}" alt="Sonarr">
-                <a href="http://{{ request.host.split(':')[0] }}:8989" target="_blank">Sonarr</a>
-            </div>
-        <div class="service">
-                <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
-                <a href="http://{{ request.host.split(':')[0] }}:7878" target="_blank">Radarr</a>
-            </div>
-        <div class="service">
-                <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">
-                <a href="http://{{ request.host.split(':')[0] }}:32400/web" target="_blank">Plex</a>
-            </div>
-            <div class="service">
-                <img src="{{ url_for('static', filename='emby.png') }}" alt="Emby">
-                <a href="http://{{ request.host.split(':')[0] }}:8096" target="_blank">Emby</a>
-            </div>
-            <div class="service">
-                <img src="{{ url_for('static', filename='deluge.png') }}" alt="Deluge">
-                <a href="http://{{ request.host.split(':')[0] }}:8112" target="_blank">Deluge</a>
-        </div>
+            <span class="service-name">Sonarr</span>
+        </a>
+        <a href="http://{{ request.host.split(':')[0] }}:7878" target="_blank" class="service">
+            <img src="{{ url_for('static', filename='radarr.png') }}" alt="Radarr">
+            <span class="service-name">Radarr</span>
+        </a>
+        <a href="http://{{ request.host.split(':')[0] }}:32400/web" target="_blank" class="service">
+            <img src="{{ url_for('static', filename='plex.png') }}" alt="Plex">
+            <span class="service-name">Plex</span>
+        </a>
+        <a href="http://{{ request.host.split(':')[0] }}:8096" target="_blank" class="service">
+            <img src="{{ url_for('static', filename='emby.png') }}" alt="Emby">
+            <span class="service-name">Emby</span>
+        </a>
+        <a href="http://{{ request.host.split(':')[0] }}:8112" target="_blank" class="service">
+            <img src="{{ url_for('static', filename='deluge.png') }}" alt="Deluge">
+            <span class="service-name">Deluge</span>
+        </a>
       </div>
       <div class="disk-usage">
         <h2>Disk Usage</h2>
