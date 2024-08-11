@@ -14,11 +14,12 @@ def get_disk_usage() -> Dict[str, int]:
         A dictionary containing total, used, free space (in GB), and usage percentage.
     """
     try:
-        disk_usage = (
-            psutil.disk_usage("/home")
-            if SERVER_NAME != "dark-helm"
-            else psutil.disk_usage("/mnt/grove")
-        )
+        if SERVER_NAME == "dark-helm":
+            disk_usage = psutil.disk_usage("/mnt/grove")
+        elif SERVER_NAME == "secret-realm":
+            disk_usage = psutil.disk_usage("/storage")
+        else:
+            disk_usage = psutil.disk_usage("/home")
     except FileNotFoundError:
         disk_usage = psutil.disk_usage("/")
 
