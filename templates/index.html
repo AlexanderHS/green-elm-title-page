@@ -221,8 +221,8 @@
             {{ disk_usage.percent }}%
           </div>
         </div>
-        <p>Used: {{ disk_usage.used }} GB</p>
-        <p>Free: {{ disk_usage.free }} GB</p>
+        <p>Used: {{ '%.2f TB' % (disk_usage.used / 1024) if disk_usage.used >= 1024 else '%.2f GB' % disk_usage.used }}</p>
+        <p>Free: {{ '%.2f TB' % (disk_usage.free / 1024) if disk_usage.free >= 1024 else '%.2f GB' % disk_usage.free }}</p>
       </div>
     </div>
 
